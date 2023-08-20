@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Data from "./data/data.json";
 import { Header, SortNavigation } from "../components";
 
@@ -6,7 +7,7 @@ export default function Home() {
     <div className="w-[760px] m-auto px-4 border">
       <Header />
 
-      <div className="flex justify-between">
+      <div className="flex justify-between mb-2">
         <h1>
           <span className="font-semibold">5</span> <i>hotels in</i>{" "}
           <span className="font-semibold">Sydney.</span>
@@ -14,6 +15,35 @@ export default function Home() {
 
         <SortNavigation />
       </div>
+
+      {Data.results.map((result) => (
+        <div key={result.id} className="flex justify-between mb-4">
+          <div className="mr-4">
+            <Image
+              src={result.property.previewImage.url}
+              alt={result.property.previewImage.caption}
+              width={145}
+              height={125}
+            />
+          </div>
+          {/* property details */}
+          <div className="w-full py-2 border-t">
+            <div className="flex justify-start">
+              <h2 className="font-semibold max-w-[50%] text-ellipsis overflow-hidden whitespace-nowrap">
+                {result.property.title}
+              </h2>
+              <div className="ml-4">
+                {result.property.rating.ratingValue}{" "}
+                {result.property.rating.ratingType}
+              </div>
+            </div>
+            {/* property address */}
+            <div className="text-xs text-gray-500">
+              {result.property.address.join(", ")}
+            </div>
+          </div>
+        </div>
+      ))}
 
       <pre>{JSON.stringify(Data, null, 2)}</pre>
 
