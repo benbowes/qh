@@ -17,32 +17,40 @@ export default function Home() {
       </div>
 
       {Data.results.map((result) => (
-        <div key={result.id} className="flex justify-between mb-4">
-          <div className="mr-4">
-            <Image
-              src={result.property.previewImage.url}
-              alt={result.property.previewImage.caption}
-              width={145}
-              height={125}
-            />
-          </div>
-          {/* property details */}
-          <div className="w-full py-2 border-t">
-            <div className="flex justify-start">
-              <h2 className="font-semibold max-w-[50%] text-ellipsis overflow-hidden whitespace-nowrap">
-                {result.property.title}
-              </h2>
-              <div className="ml-4">
-                {result.property.rating.ratingValue}{" "}
-                {result.property.rating.ratingType}
+        <>
+          {/* List item structure */}
+          <div key={result.id} className="flex justify-between mb-4">
+            <div className="mr-4">
+              <Image
+                src={result.property.previewImage.url}
+                alt={result.property.previewImage.caption}
+                width={145}
+                height={125}
+              />
+            </div>
+
+            <div className="w-full py-2 border-t flex justify-between">
+              {/* property details left */}
+              <div className="max-w-[66%]">
+                <div className="flex justify-start">
+                  <h2 className="font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
+                    {result.property.title}
+                  </h2>
+                  <div className="ml-4 whitespace-nowrap">
+                    {result.property.rating.ratingValue}{" "}
+                    {result.property.rating.ratingType}
+                  </div>
+                </div>
+
+                {/* property address */}
+                <div className="text-xs text-gray-500">
+                  {result.property.address.join(", ")}
+                </div>
               </div>
-            </div>
-            {/* property address */}
-            <div className="text-xs text-gray-500">
-              {result.property.address.join(", ")}
+              <div className="flex self-end">PRICE</div>
             </div>
           </div>
-        </div>
+        </>
       ))}
 
       <pre>{JSON.stringify(Data, null, 2)}</pre>
