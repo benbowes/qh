@@ -16,35 +16,37 @@ export default function Home() {
         <SortNavigation />
       </div>
 
-      {Data.results.map((result) => (
+      {Data.results.map(({ id, offer, property }) => (
         <>
           {/* List item structure */}
-          <div key={result.id} className="flex justify-between mb-4">
-            <div className="mr-4">
+          <div key={id} className="flex justify-between mb-4">
+            <div className="mr-4 relative">
+              <div className="absolute top-2 bg-white text-qantasRed px-3 py-2 leading-none text-xs font-semibold">
+                {offer.promotion.title}
+              </div>
               <Image
-                src={result.property.previewImage.url}
-                alt={result.property.previewImage.caption}
+                src={property.previewImage.url}
+                alt={property.previewImage.caption}
                 width={145}
                 height={125}
               />
             </div>
 
-            <div className="w-full py-2 border-t flex justify-between">
+            <div className="w-full pt-2 border-t flex justify-between">
               {/* property details left */}
               <div className="max-w-[66%]">
                 <div className="flex justify-start">
                   <h2 className="font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
-                    {result.property.title}
+                    {property.title}
                   </h2>
                   <div className="ml-4 whitespace-nowrap">
-                    {result.property.rating.ratingValue}{" "}
-                    {result.property.rating.ratingType}
+                    {property.rating.ratingValue} {property.rating.ratingType}
                   </div>
                 </div>
 
                 {/* property address */}
                 <div className="text-xs text-gray-500">
-                  {result.property.address.join(", ")}
+                  {property.address.join(", ")}
                 </div>
               </div>
               <div className="flex self-end">PRICE</div>
