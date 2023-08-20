@@ -1,35 +1,19 @@
-import Image from "next/image";
-import Data from "./data.json";
+import Data from "./data/data.json";
+import { Header, SortNavigation } from "../components";
 
 export default function Home() {
   return (
     <div className="w-[760px] m-auto px-4 border">
-      <header>
-        <Image
-          src="/images/qantas-logo.png"
-          className="pt-10 pb-8"
-          alt="Qantas Logo"
-          width={206}
-          height={40}
-          priority
-        />
-        <div className="flex justify-between">
-          <h1>
-            <span className="font-semibold">5</span> <i>hotels in</i>{" "}
-            <span className="font-semibold">Sydney.</span>
-          </h1>
+      <Header />
 
-          <nav>
-            <label htmlFor="price-sort" className="font-semibold">
-              Sort by{" "}
-            </label>
-            <select id="price-sort">
-              <option value="price-high-low">Price high-low</option>
-              <option value="price-low-high">Price low-high</option>
-            </select>
-          </nav>
-        </div>
-      </header>
+      <div className="flex justify-between">
+        <h1>
+          <span className="font-semibold">5</span> <i>hotels in</i>{" "}
+          <span className="font-semibold">Sydney.</span>
+        </h1>
+
+        <SortNavigation />
+      </div>
 
       <pre>{JSON.stringify(Data, null, 2)}</pre>
 
