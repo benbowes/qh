@@ -34,7 +34,7 @@ export default function Home() {
 
             <div className="w-full pt-2 border-t flex justify-between">
               {/* property details left */}
-              <div className="max-w-[66%]">
+              <div className="max-w-[66%] relative">
                 <div className="flex justify-start">
                   <h2 className="font-semibold text-ellipsis overflow-hidden whitespace-nowrap">
                     {property.title}
@@ -50,11 +50,23 @@ export default function Home() {
                 </div>
 
                 {/* promo attributes */}
-                <div className="text-xs flex flex-col self-end">
-                  {property.address.join(", ")}
+                <div className="text-xs absolute bottom-0">
+                  {offer.name && (
+                    <div className="text-qantasRed">{offer.name}</div>
+                  )}
                 </div>
               </div>
-              <div className="flex self-end">${offer.displayPrice.amount}</div>
+              <div className="flex self-end text-right flex-col text-xl font-semibold">
+                <div className="text-xs text-gray-500">
+                  1 night total ({offer.displayPrice.currency})
+                </div>
+                <div>
+                  <span className="text-xs font-normal align-top mt-1 inline-block">
+                    $
+                  </span>
+                  <span>{offer.displayPrice.amount}</span>
+                </div>
+              </div>
             </div>
           </div>
         </>
