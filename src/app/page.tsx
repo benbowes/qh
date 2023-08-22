@@ -48,8 +48,13 @@ export default function Home() {
                 <div className="text-xs text-gray-500">
                   {property.address.join(", ")}
                 </div>
+
+                {/* promo attributes */}
+                <div className="text-xs flex flex-col self-end">
+                  {property.address.join(", ")}
+                </div>
               </div>
-              <div className="flex self-end">PRICE</div>
+              <div className="flex self-end">${offer.displayPrice.amount}</div>
             </div>
           </div>
         </>
