@@ -5,30 +5,30 @@ export interface Property {
   previewImage: {
     url: string;
     caption: string;
-    imageType: "PRIMARY";
+    imageType: string;
   };
   rating: {
     ratingValue: number;
-    ratingType: "self" | "star";
+    ratingType: string;
   };
 }
 
 export interface Offer {
   promotion: {
-    title: "Exclusive Deal" | "Bonus Points" | "Red Hot";
-    type: "MEMBER" | "CAMPAIGN";
+    title: string;
+    type: string;
   };
-  name: "Deluxe Balcony Room" | "Deluxe King" | "Deluxe King Room";
+  name: string;
   displayPrice: {
     amount: number;
-    currency: "AUD";
+    currency: string;
   };
   savings: {
     amount: number;
-    currency: "AUD";
+    currency: string;
   } | null;
   cancellationOption: {
-    cancellationType: "NOT_REFUNDABLE" | "FREE_CANCELLATION";
+    cancellationType: string;
   };
 }
 
