@@ -38,3 +38,21 @@ Runs eslint and typescript linting
 ```bash
 npm run lint
 ```
+
+## Future steps
+
+I focussed on the business requirements of the code test.
+I intentionally stopped working on the test as I was going over time, and I read a note from the hiring manager that was totally ok.
+
+#### Ratings icons
+
+For the ratings icons, I could use pure CSS for both or use an SVG. I would need to chat to the designer to understand the business requirements
+
+I found this CSS star icon:
+https://codepen.io/anefzaoui/pen/NWPZzMa
+
+And the round icon I could do from memory.
+
+#### Component structure
+
+I would put some more time into the component structure as time went on...
